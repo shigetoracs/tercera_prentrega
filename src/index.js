@@ -23,7 +23,7 @@ const server = app.listen(PORT, () => {
 
 // const io = new Server(server);
 
-//Middlewares//coneccion a mongodbatlas no pasarle la contraseña al tutuor
+//Middlewares//
 mongoose
   .connect(varenv.mongo_url)
   .then(() => console.log("DB is connected"))
@@ -88,16 +88,4 @@ app.post("/login", (req, res) => {
   console.log(req.session);
   res.send("Login");
 });
-// io.on("connection", (socket) => {
-//   console.log("Conexion con Socket.io");
 
-//   socket.on("mensaje", async (mensaje) => {
-//     try {
-//       await messageModel.create(mensaje);
-//       const mensajes = await messageModel.find();
-//       io.emit("mensajeLogs", mensajes);
-//     } catch (error) {
-//       io.emit("mensajeLogs", error);
-//     }
-//   });
-// });
